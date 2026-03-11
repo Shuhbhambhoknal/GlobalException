@@ -69,6 +69,18 @@ public class CustomizedResponseEntityException {
 
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<Object> handleAccessDenied(AccessDeniedException ex, WebRequest request) {
+
+        ExceptionResponse response = new ExceptionResponse(
+                "Access Denied",
+                LocalDate.now(),
+                request.getDescription(false),
+                "403 Forbidden"
+        );
+
+        return new ResponseEntity<>(response, HttpStatus.FORBIDDEN);
+    }
 
     // 5. Handle JSON Parsing Errors
 //    @ExceptionHandler(HttpMessageNotReadableException.class)
@@ -99,18 +111,7 @@ public class CustomizedResponseEntityException {
 //    }
 
     // 7. Handle Security Errors
-    @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity<Object> handleAccessDenied(AccessDeniedException ex, WebRequest request) {
 
-        ExceptionResponse response = new ExceptionResponse(
-                "Access Denied",
-                LocalDate.now(),
-                request.getDescription(false),
-                "403 Forbidden"
-        );
-
-        return new ResponseEntity<>(response, HttpStatus.FORBIDDEN);
-    }
 
     // 8. Handle JWT Exceptions
 //    @ExceptionHandler(JwtException.class)
