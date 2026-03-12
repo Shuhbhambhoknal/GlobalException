@@ -6,14 +6,14 @@ public class ExceptionResponse {
 
     private LocalDate timeStamp;
     private String message;
-    private String httpCodeMsg;
+    private String httpCodeMessage;
     private String details;
 
-    public ExceptionResponse(String details, LocalDate timeStamp, String message, String httpCodeMsg) {
+    public ExceptionResponse(String details, LocalDate timeStamp, String message, String httpCodeMessage) {
         this.details = details;
         this.timeStamp = timeStamp;
         this.message = message;
-        this.httpCodeMsg = httpCodeMsg;
+        this.httpCodeMessage = httpCodeMessage;
     }
 
     public LocalDate getTimeStamp() {
@@ -32,12 +32,12 @@ public class ExceptionResponse {
         this.message = message;
     }
 
-    public String getHttpCodeMsg() {
-        return httpCodeMsg;
+    public String getHttpCodeMessage() {
+        return httpCodeMessage;
     }
 
-    public void setHttpCodeMsg(String httpCodeMsg) {
-        this.httpCodeMsg = httpCodeMsg;
+    public void setHttpCodeMessage(String httpCodeMessage) {
+        this.httpCodeMessage = httpCodeMessage;
     }
 
     public String getDetails() {
